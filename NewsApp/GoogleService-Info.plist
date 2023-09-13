@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>470254326977-16g2qt46afrc4miv7ek8ctju8q55ejma.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.470254326977-16g2qt46afrc4miv7ek8ctju8q55ejma</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBO3HJteRcptWMyMQUCPfpfJ20GYnyUUvo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>470254326977</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>asyaatpulat.info.NewsApp</string>
+	<key>PROJECT_ID</key>
+	<string>newsapp-b4192</string>
+	<key>STORAGE_BUCKET</key>
+	<string>newsapp-b4192.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:470254326977:ios:672572161bcd3a2645f040</string>
+</dict>
+</plist>

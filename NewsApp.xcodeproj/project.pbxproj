@@ -7,15 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2215CCE72AAD03FB00CD999A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215CCE62AAD03FB00CD999A /* NewsViewController.swift */; };
+		2215CCE92AAD041400CD999A /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2215CCE82AAD041400CD999A /* News.storyboard */; };
+		2215CCEB2AAD074B00CD999A /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215CCEA2AAD074B00CD999A /* NewsDetailViewController.swift */; };
+		2215CCED2AAD1C5D00CD999A /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215CCEC2AAD1C5D00CD999A /* NewsCell.swift */; };
+		2215CCEF2AAD213200CD999A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2215CCEE2AAD213200CD999A /* NewsViewModel.swift */; };
+		223FB0A82AADD7D90005E5F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB0A72AADD7D90005E5F9 /* NetworkManager.swift */; };
+		223FB0AB2AADDDF60005E5F9 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB0AA2AADDDF60005E5F9 /* NewsModel.swift */; };
+		223FB0AF2AAE71040005E5F9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB0AE2AAE71040005E5F9 /* UIImageView+.swift */; };
+		223FB0B12AAFCB760005E5F9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB0B02AAFCB760005E5F9 /* TabBarViewController.swift */; };
 		22C54D312AA7C68C0093A2E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D302AA7C68C0093A2E6 /* AppDelegate.swift */; };
 		22C54D332AA7C68C0093A2E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D322AA7C68C0093A2E6 /* SceneDelegate.swift */; };
 		22C54D352AA7C68C0093A2E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D342AA7C68C0093A2E6 /* ViewController.swift */; };
 		22C54D382AA7C68C0093A2E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C54D362AA7C68C0093A2E6 /* Main.storyboard */; };
 		22C54D3A2AA7C68E0093A2E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22C54D392AA7C68E0093A2E6 /* Assets.xcassets */; };
 		22C54D3D2AA7C68E0093A2E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C54D3B2AA7C68E0093A2E6 /* LaunchScreen.storyboard */; };
+		22C54D472AA7C8160093A2E6 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D462AA7C8160093A2E6 /* OnboardingViewController.swift */; };
+		22C54D492AA7CC760093A2E6 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D482AA7CC760093A2E6 /* OnboardingSlide.swift */; };
+		22C54D4B2AA7D39A0093A2E6 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D4A2AA7D39A0093A2E6 /* OnboardingCollectionViewCell.swift */; };
+		22C54D4D2AA9E47E0093A2E6 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C54D4C2AA9E47D0093A2E6 /* Auth.storyboard */; };
+		22C54D4F2AA9E8B90093A2E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D4E2AA9E8B90093A2E6 /* LoginViewController.swift */; };
+		22C54D512AA9E8E70093A2E6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D502AA9E8E70093A2E6 /* RegisterViewController.swift */; };
+		22C54D532AA9ECD30093A2E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22C54D522AA9ECD30093A2E6 /* GoogleService-Info.plist */; };
+		22C54D562AA9FC360093A2E6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 22C54D552AA9FC360093A2E6 /* FirebaseAuth */; };
+		22D79A062AB1C06500FE03BA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D79A052AB1C06500FE03BA /* ProfileViewController.swift */; };
+		22D79A082AB1C15900FE03BA /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D79A072AB1C15900FE03BA /* SavedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2215CCE62AAD03FB00CD999A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		2215CCE82AAD041400CD999A /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		2215CCEA2AAD074B00CD999A /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		2215CCEC2AAD1C5D00CD999A /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		2215CCEE2AAD213200CD999A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		223FB0A72AADD7D90005E5F9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		223FB0AA2AADDDF60005E5F9 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		223FB0AE2AAE71040005E5F9 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		223FB0B02AAFCB760005E5F9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		22C54D2D2AA7C68C0093A2E6 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C54D302AA7C68C0093A2E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C54D322AA7C68C0093A2E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +52,15 @@
 		22C54D392AA7C68E0093A2E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22C54D3C2AA7C68E0093A2E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22C54D3E2AA7C68E0093A2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22C54D462AA7C8160093A2E6 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		22C54D482AA7CC760093A2E6 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		22C54D4A2AA7D39A0093A2E6 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		22C54D4C2AA9E47D0093A2E6 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		22C54D4E2AA9E8B90093A2E6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		22C54D502AA9E8E70093A2E6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		22C54D522AA9ECD30093A2E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		22D79A052AB1C06500FE03BA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		22D79A072AB1C15900FE03BA /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +68,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C54D562AA9FC360093A2E6 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		223FB0A62AADD7810005E5F9 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				223FB0A72AADD7D90005E5F9 /* NetworkManager.swift */,
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		223FB0A92AADDDE00005E5F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				223FB0AA2AADDDF60005E5F9 /* NewsModel.swift */,
+				22C54D482AA7CC760093A2E6 /* OnboardingSlide.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		223FB0AC2AADE6BE0005E5F9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2215CCE82AAD041400CD999A /* News.storyboard */,
+				22C54D362AA7C68C0093A2E6 /* Main.storyboard */,
+				22C54D4C2AA9E47D0093A2E6 /* Auth.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		223FB0AD2AAE70E10005E5F9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				223FB0AE2AAE71040005E5F9 /* UIImageView+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		22C54D242AA7C68C0093A2E6 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +129,46 @@
 		22C54D2F2AA7C68C0093A2E6 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				223FB0AD2AAE70E10005E5F9 /* Extension */,
+				223FB0AC2AADE6BE0005E5F9 /* Storyboard */,
+				223FB0A92AADDDE00005E5F9 /* Model */,
+				223FB0A62AADD7810005E5F9 /* Network Layer */,
+				22C54D442AA7C7B10093A2E6 /* ui */,
 				22C54D302AA7C68C0093A2E6 /* AppDelegate.swift */,
 				22C54D322AA7C68C0093A2E6 /* SceneDelegate.swift */,
 				22C54D342AA7C68C0093A2E6 /* ViewController.swift */,
-				22C54D362AA7C68C0093A2E6 /* Main.storyboard */,
 				22C54D392AA7C68E0093A2E6 /* Assets.xcassets */,
 				22C54D3B2AA7C68E0093A2E6 /* LaunchScreen.storyboard */,
 				22C54D3E2AA7C68E0093A2E6 /* Info.plist */,
+				22C54D522AA9ECD30093A2E6 /* GoogleService-Info.plist */,
 			);
 			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		22C54D442AA7C7B10093A2E6 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				22C54D452AA7C7BA0093A2E6 /* views */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		22C54D452AA7C7BA0093A2E6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				22C54D462AA7C8160093A2E6 /* OnboardingViewController.swift */,
+				22C54D4A2AA7D39A0093A2E6 /* OnboardingCollectionViewCell.swift */,
+				22C54D4E2AA9E8B90093A2E6 /* LoginViewController.swift */,
+				22C54D502AA9E8E70093A2E6 /* RegisterViewController.swift */,
+				2215CCE62AAD03FB00CD999A /* NewsViewController.swift */,
+				2215CCEA2AAD074B00CD999A /* NewsDetailViewController.swift */,
+				2215CCEC2AAD1C5D00CD999A /* NewsCell.swift */,
+				2215CCEE2AAD213200CD999A /* NewsViewModel.swift */,
+				223FB0B02AAFCB760005E5F9 /* TabBarViewController.swift */,
+				22D79A052AB1C06500FE03BA /* ProfileViewController.swift */,
+				22D79A072AB1C15900FE03BA /* SavedViewController.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +187,9 @@
 			dependencies = (
 			);
 			name = NewsApp;
+			packageProductDependencies = (
+				22C54D552AA9FC360093A2E6 /* FirebaseAuth */,
+			);
 			productName = NewsApp;
 			productReference = 22C54D2D2AA7C68C0093A2E6 /* NewsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +218,9 @@
 				Base,
 			);
 			mainGroup = 22C54D242AA7C68C0093A2E6;
+			packageReferences = (
+				22C54D542AA9FC360093A2E6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 22C54D2E2AA7C68C0093A2E6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,7 +235,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C54D4D2AA9E47E0093A2E6 /* Auth.storyboard in Resources */,
+				2215CCE92AAD041400CD999A /* News.storyboard in Resources */,
 				22C54D3D2AA7C68E0093A2E6 /* LaunchScreen.storyboard in Resources */,
+				22C54D532AA9ECD30093A2E6 /* GoogleService-Info.plist in Resources */,
 				22C54D3A2AA7C68E0093A2E6 /* Assets.xcassets in Resources */,
 				22C54D382AA7C68C0093A2E6 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +251,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223FB0B12AAFCB760005E5F9 /* TabBarViewController.swift in Sources */,
+				223FB0AB2AADDDF60005E5F9 /* NewsModel.swift in Sources */,
+				22C54D4F2AA9E8B90093A2E6 /* LoginViewController.swift in Sources */,
 				22C54D352AA7C68C0093A2E6 /* ViewController.swift in Sources */,
 				22C54D312AA7C68C0093A2E6 /* AppDelegate.swift in Sources */,
+				223FB0A82AADD7D90005E5F9 /* NetworkManager.swift in Sources */,
+				2215CCED2AAD1C5D00CD999A /* NewsCell.swift in Sources */,
+				22D79A062AB1C06500FE03BA /* ProfileViewController.swift in Sources */,
+				22C54D512AA9E8E70093A2E6 /* RegisterViewController.swift in Sources */,
+				2215CCEB2AAD074B00CD999A /* NewsDetailViewController.swift in Sources */,
 				22C54D332AA7C68C0093A2E6 /* SceneDelegate.swift in Sources */,
+				2215CCEF2AAD213200CD999A /* NewsViewModel.swift in Sources */,
+				22D79A082AB1C15900FE03BA /* SavedViewController.swift in Sources */,
+				223FB0AF2AAE71040005E5F9 /* UIImageView+.swift in Sources */,
+				22C54D472AA7C8160093A2E6 /* OnboardingViewController.swift in Sources */,
+				2215CCE72AAD03FB00CD999A /* NewsViewController.swift in Sources */,
+				22C54D492AA7CC760093A2E6 /* OnboardingSlide.swift in Sources */,
+				22C54D4B2AA7D39A0093A2E6 /* OnboardingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +486,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22C54D542AA9FC360093A2E6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22C54D552AA9FC360093A2E6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22C54D542AA9FC360093A2E6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22C54D252AA7C68C0093A2E6 /* Project object */;
 }
