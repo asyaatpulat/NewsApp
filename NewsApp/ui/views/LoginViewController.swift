@@ -18,8 +18,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        passwordTextField.isSecureTextEntry = true
     }
     
     @IBAction func register(_ sender: Any) {
@@ -32,7 +31,10 @@ class LoginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
             if let e = error {
-                print("error")
+                let alertController = UIAlertController(title: "Error", message: "Wrong email/wrong password", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                print("Error: \(e.localizedDescription)")
             }else {
                 let storyboard = UIStoryboard(name: "News", bundle: nil)
                 if let vc = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {

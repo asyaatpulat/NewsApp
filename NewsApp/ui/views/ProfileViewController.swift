@@ -8,28 +8,30 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let tabBarVC = tabBarController as? TabBarViewController {
             if let userEmail = tabBarVC.userEmail {
-            emailLabel.text = "Email: \(userEmail)"
+                emailLabel.text = "Email: \(userEmail)"
             }
         }
     }
     
-    @IBAction func `switch`(_ sender: Any) {
-        /*let appDelegate = UIApplication.shared.windows.first
-                if sender.isOn {
-                    appDelegate?.overrideUserInterfaceStyle = .dark
-                    labelText.text = "Dark Mode"
-                }
-                else{
-                    appDelegate?.overrideUserInterfaceStyle = .light
-                    labelText.text = "Light Mode"
-                }*/
+    @IBAction func `switch`(_ sender: UISwitch) {
+        if #available(iOS 13.0, *){
+            let appDelegate = UIApplication.shared.windows.first
+            if sender.isOn {
+                appDelegate?.overrideUserInterfaceStyle = .dark
+                labelText.text = "Dark Mode"
+            }
+            else{
+                appDelegate?.overrideUserInterfaceStyle = .light
+                labelText.text = "Light Mode"
+            }
+        }
     }
 }

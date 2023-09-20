@@ -31,15 +31,15 @@ enum Path {
             let urlString = "\(baseURL)?country=\(country)&apiKey=\(apiKey)"
             return URL(string: urlString)!
         case .search(let searchText):
-            guard let encodedSearchText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-                  fatalError("Failed to encode searchText")
-              }
-              let urlString = "\(everytingURL)?q=\(encodedSearchText)&apiKey=\(apiKey)"
-              if let url = URL(string: urlString) {
-                  return url
-              } else {
-                  fatalError("Failed to create URL")
-              }
+               guard let encodedSearchText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                   fatalError("Failed to encode searchText")
+               }
+               let urlString = "\(everytingURL)?q=\(encodedSearchText)&apiKey=\(apiKey)"
+               if let url = URL(string: urlString) {
+                   return url
+               } else {
+                   fatalError("Failed to create URL")
+               }
         }
     }
 }

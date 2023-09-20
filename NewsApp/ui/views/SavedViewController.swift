@@ -41,8 +41,6 @@ class SavedViewController: UIViewController {
 extension SavedViewController:UICollectionViewDelegateFlowLayout , UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SavedCollectionViewCell.identifier, for: indexPath) as! SavedCollectionViewCell
-      //  cell.titleLabel.text = "abc"
-        //cell.sourceLabel.text = "cnn"
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.borderWidth = 0.3
         cell.layer.cornerRadius = 10.0

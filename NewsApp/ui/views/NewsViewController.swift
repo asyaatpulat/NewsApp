@@ -24,8 +24,8 @@ class NewsViewController: UIViewController , MenuListDelegate {
         super.viewDidLoad()
         prepareSideMenu()
         prepareCollectionView()
-        prepareSearchBar()
         viewModel.loadNews()
+        prepareSearchBar()
         viewModel.onSuccess = reloadCollectionView()
         viewModel.onError = showError()
         if let menuListController = menu?.viewControllers.first as? MenuListController {
@@ -125,6 +125,9 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
             cell.titleLabel?.text = viewModel.cellForRow(at: indexPath)?.title
             cell.titleLabel?.lineBreakMode = .byTruncatingTail
             cell.titleLabel?.numberOfLines = 6
+            cell.titleLabel?.font = .poppinsRegular(size: 18)
+            cell.sourceLabel?.font = .poppinsRegular(size: 10)
+            cell.dateLabel?.font = .poppinsThin(size: 2)
             cell.dateLabel?.text = viewModel.cellForRow(at: indexPath)?.publishedAt?.fullDateString()
             cell.sourceLabel.text = viewModel.cellForRow(at: indexPath)?.source?.name
             cell.newsImageView.downloaded(from: viewModel.cellForRow(at: indexPath)?.urlToImage ?? "")
