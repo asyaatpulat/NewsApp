@@ -36,7 +36,9 @@ class LoginViewController: UIViewController {
             }else {
                 let storyboard = UIStoryboard(name: "News", bundle: nil)
                 if let vc = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
+                    vc.userEmail = email
                     self.navigationController?.setViewControllers([vc], animated: true)
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             }
             

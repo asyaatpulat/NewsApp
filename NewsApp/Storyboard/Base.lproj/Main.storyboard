@@ -12,7 +12,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingViewController" id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,9 +67,9 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="393" height="615"/>
                                         <connections>
-                                            <outlet property="slideDescriptionLabel" destination="ITv-jc-vkk" id="uRM-ps-Vzi"/>
-                                            <outlet property="slideImageView" destination="dF6-Yn-eKk" id="HFQ-DW-vsz"/>
-                                            <outlet property="slideTitleLabel" destination="SZv-bN-Dd0" id="3AT-Cw-RiM"/>
+                                            <outlet property="slideDescriptionLabel" destination="ITv-jc-vkk" id="PVB-se-QQz"/>
+                                            <outlet property="slideImageView" destination="dF6-Yn-eKk" id="9As-1E-rpx"/>
+                                            <outlet property="slideTitleLabel" destination="SZv-bN-Dd0" id="UNW-kG-QiF"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -111,9 +111,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="cco-78-ZvT"/>
                     <connections>
-                        <outlet property="collectionView" destination="Klw-3g-3v0" id="hB3-Dw-UxE"/>
-                        <outlet property="nextButton" destination="k70-YS-95F" id="74M-PJ-EnF"/>
-                        <outlet property="pageControl" destination="hnh-x4-tte" id="DQn-cc-dda"/>
+                        <outlet property="collectionView" destination="Klw-3g-3v0" id="HMm-E5-x4S"/>
+                        <outlet property="nextButton" destination="k70-YS-95F" id="7RA-CT-AOw"/>
+                        <outlet property="pageControl" destination="hnh-x4-tte" id="6TO-HT-DyW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -16,6 +16,7 @@
 		223FB0AB2AADDDF60005E5F9 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB0AA2AADDDF60005E5F9 /* NewsModel.swift */; };
 		223FB0AF2AAE71040005E5F9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB0AE2AAE71040005E5F9 /* UIImageView+.swift */; };
 		223FB0B12AAFCB760005E5F9 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB0B02AAFCB760005E5F9 /* TabBarViewController.swift */; };
+		227C12F92AB77D3000A32A08 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227C12F72AB77D3000A32A08 /* Model.xcdatamodeld */; };
 		22C54D312AA7C68C0093A2E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D302AA7C68C0093A2E6 /* AppDelegate.swift */; };
 		22C54D332AA7C68C0093A2E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D322AA7C68C0093A2E6 /* SceneDelegate.swift */; };
 		22C54D352AA7C68C0093A2E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C54D342AA7C68C0093A2E6 /* ViewController.swift */; };
@@ -32,6 +33,9 @@
 		22C54D562AA9FC360093A2E6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 22C54D552AA9FC360093A2E6 /* FirebaseAuth */; };
 		22D79A062AB1C06500FE03BA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D79A052AB1C06500FE03BA /* ProfileViewController.swift */; };
 		22D79A082AB1C15900FE03BA /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D79A072AB1C15900FE03BA /* SavedViewController.swift */; };
+		22D79A0A2AB39CDB00FE03BA /* SavedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D79A092AB39CDB00FE03BA /* SavedCollectionViewCell.swift */; };
+		22D79A102AB3B1FD00FE03BA /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 22D79A0F2AB3B1FD00FE03BA /* SideMenu */; };
+		22D79A122AB3B52400FE03BA /* MenuListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D79A112AB3B52400FE03BA /* MenuListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,7 @@
 		223FB0AA2AADDDF60005E5F9 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		223FB0AE2AAE71040005E5F9 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		223FB0B02AAFCB760005E5F9 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		227C12F82AB77D3000A32A08 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		22C54D2D2AA7C68C0093A2E6 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C54D302AA7C68C0093A2E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C54D322AA7C68C0093A2E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +66,8 @@
 		22C54D522AA9ECD30093A2E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22D79A052AB1C06500FE03BA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		22D79A072AB1C15900FE03BA /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		22D79A092AB39CDB00FE03BA /* SavedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewCell.swift; sourceTree = "<group>"; };
+		22D79A112AB3B52400FE03BA /* MenuListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D79A102AB3B1FD00FE03BA /* SideMenu in Frameworks */,
 				22C54D562AA9FC360093A2E6 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +148,7 @@
 				22C54D392AA7C68E0093A2E6 /* Assets.xcassets */,
 				22C54D3B2AA7C68E0093A2E6 /* LaunchScreen.storyboard */,
 				22C54D3E2AA7C68E0093A2E6 /* Info.plist */,
+				227C12F72AB77D3000A32A08 /* Model.xcdatamodeld */,
 				22C54D522AA9ECD30093A2E6 /* GoogleService-Info.plist */,
 			);
 			path = NewsApp;
@@ -167,6 +176,8 @@
 				223FB0B02AAFCB760005E5F9 /* TabBarViewController.swift */,
 				22D79A052AB1C06500FE03BA /* ProfileViewController.swift */,
 				22D79A072AB1C15900FE03BA /* SavedViewController.swift */,
+				22D79A092AB39CDB00FE03BA /* SavedCollectionViewCell.swift */,
+				22D79A112AB3B52400FE03BA /* MenuListController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 			name = NewsApp;
 			packageProductDependencies = (
 				22C54D552AA9FC360093A2E6 /* FirebaseAuth */,
+				22D79A0F2AB3B1FD00FE03BA /* SideMenu */,
 			);
 			productName = NewsApp;
 			productReference = 22C54D2D2AA7C68C0093A2E6 /* NewsApp.app */;
@@ -220,6 +232,7 @@
 			mainGroup = 22C54D242AA7C68C0093A2E6;
 			packageReferences = (
 				22C54D542AA9FC360093A2E6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				22D79A0E2AB3B1FD00FE03BA /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = 22C54D2E2AA7C68C0093A2E6 /* Products */;
 			projectDirPath = "";
@@ -255,6 +268,7 @@
 				223FB0AB2AADDDF60005E5F9 /* NewsModel.swift in Sources */,
 				22C54D4F2AA9E8B90093A2E6 /* LoginViewController.swift in Sources */,
 				22C54D352AA7C68C0093A2E6 /* ViewController.swift in Sources */,
+				22D79A0A2AB39CDB00FE03BA /* SavedCollectionViewCell.swift in Sources */,
 				22C54D312AA7C68C0093A2E6 /* AppDelegate.swift in Sources */,
 				223FB0A82AADD7D90005E5F9 /* NetworkManager.swift in Sources */,
 				2215CCED2AAD1C5D00CD999A /* NewsCell.swift in Sources */,
@@ -262,10 +276,12 @@
 				22C54D512AA9E8E70093A2E6 /* RegisterViewController.swift in Sources */,
 				2215CCEB2AAD074B00CD999A /* NewsDetailViewController.swift in Sources */,
 				22C54D332AA7C68C0093A2E6 /* SceneDelegate.swift in Sources */,
+				22D79A122AB3B52400FE03BA /* MenuListController.swift in Sources */,
 				2215CCEF2AAD213200CD999A /* NewsViewModel.swift in Sources */,
 				22D79A082AB1C15900FE03BA /* SavedViewController.swift in Sources */,
 				223FB0AF2AAE71040005E5F9 /* UIImageView+.swift in Sources */,
 				22C54D472AA7C8160093A2E6 /* OnboardingViewController.swift in Sources */,
+				227C12F92AB77D3000A32A08 /* Model.xcdatamodeld in Sources */,
 				2215CCE72AAD03FB00CD999A /* NewsViewController.swift in Sources */,
 				22C54D492AA7CC760093A2E6 /* OnboardingSlide.swift in Sources */,
 				22C54D4B2AA7D39A0093A2E6 /* OnboardingCollectionViewCell.swift in Sources */,
@@ -496,6 +512,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		22D79A0E2AB3B1FD00FE03BA /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -504,7 +528,25 @@
 			package = 22C54D542AA9FC360093A2E6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
+		22D79A0F2AB3B1FD00FE03BA /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22D79A0E2AB3B1FD00FE03BA /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		227C12F72AB77D3000A32A08 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				227C12F82AB77D3000A32A08 /* Model.xcdatamodel */,
+			);
+			currentVersion = 227C12F82AB77D3000A32A08 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 22C54D252AA7C68C0093A2E6 /* Project object */;
 }

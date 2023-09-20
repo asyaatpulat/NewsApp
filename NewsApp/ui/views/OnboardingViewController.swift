@@ -19,6 +19,7 @@ class OnboardingViewController: UIViewController {
             pageControl.currentPage = currentPage
             if currentPage == slides.count - 1 {
                 nextButton.setTitle("Get Started", for: .normal)
+                UserDefaults.standard.set(true, forKey: "openedapp")
             }
             else {
                 nextButton.setTitle("Next", for: .normal)

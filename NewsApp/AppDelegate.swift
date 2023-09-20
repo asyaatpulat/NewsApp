@@ -7,11 +7,34 @@
 
 import UIKit
 import FirebaseCore
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Model")
+        container.loadPersistentStores(completionHandler: { description, error in
+            if let e = error{
+                print(error!.localizedDescription)
+            }
+        })
+        
+        return container
+    }()
+    
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do{
+                try context.save()
+            }catch{
+                print(error.localizedDescription)
+            }
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

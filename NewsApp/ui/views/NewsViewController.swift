@@ -6,38 +6,66 @@
 //
 
 import UIKit
+import SideMenu
+import CoreData
 
-class NewsViewController: UIViewController {
-
+class NewsViewController: UIViewController , MenuListDelegate {
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var newsCollectionView: UICollectionView!
+    
+    
+    var menu : SideMenuNavigationController?
     
     var viewModel = NewsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareSideMenu()
         prepareCollectionView()
         prepareSearchBar()
         viewModel.loadNews()
         viewModel.onSuccess = reloadCollectionView()
         viewModel.onError = showError()
-        
+        if let menuListController = menu?.viewControllers.first as? MenuListController {
+                 menuListController.delegate = self
+         }
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask ))
     }
+    
+    @IBAction func sideMenu(_ sender: Any) {
+        if let menu = menu {
+            print("Presenting Menu")
+            present(menu, animated: true, completion: nil)
+        }
+    }
+    
+    func prepareSideMenu(){
+        menu = SideMenuNavigationController(rootViewController: MenuListController())
+        menu?.leftSide = true
+        menu?.setNavigationBarHidden(true, animated: false)
+        SideMenuManager.default.leftMenuNavigationController = menu
+        SideMenuManager.default.addPanGestureToPresent(toView: self.view)
+    }
+    
     func prepareCollectionView() {
-        newsCollectionView.delegate = self
-        newsCollectionView.dataSource = self
+        newsCollectionView?.delegate = self
+        newsCollectionView?.dataSource = self
     }
+    
     func prepareSearchBar() {
-        searchBar.delegate = self
+        searchBar?.delegate = self
     }
+    
     func reloadCollectionView()->() -> (){
         return {
             DispatchQueue.main.async {
-            self.newsCollectionView.reloadData()
+                self.newsCollectionView?.reloadData()
+            }
         }
-      }
     }
+    
     func showError() -> (_ errorStr: String) -> () {
         return { errorStr in
             DispatchQueue.main.async {
@@ -48,14 +76,41 @@ class NewsViewController: UIViewController {
             }
         }
     }
-
-}
-extension NewsViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText )
+    func didSelectCategory(_ category: String) {
+        viewModel.category = category
+        viewModel.loadNews()
     }
 }
-extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionViewDataSource{
+
+extension NewsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchText = searchText
+        viewModel.loadNews()
+        print(searchText)
+    }
+}
+extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionViewDataSource, NewsCellDelegate{
+    func saveButtonClicked(title: String, source: String, image: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+
+        let context = appDelegate.persistentContainer.viewContext
+
+        if let entity = NSEntityDescription.entity(forEntityName: "News", in: context), let news = NSManagedObject(entity: entity, insertInto: context) as? NSManagedObject {
+            news.setValue(title, forKey: "title")
+            news.setValue(source, forKey: "source")
+            news.setValue(image, forKey: "image")
+
+            do {
+                try context.save()
+                print("Haber kaydedildi.")
+            } catch {
+                print("Haber kaydedilirken bir hata oluştu: \(error)")
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
@@ -64,16 +119,25 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as! NewsCell
-        cell.titleLabel?.text = viewModel.cellForRow(at: indexPath)?.title
-        cell.titleLabel?.numberOfLines = 5
-        cell.titleLabel?.lineBreakMode = .byTruncatingTail
-        cell.sourceLabel.text = viewModel.cellForRow(at: indexPath)?.source?.name
-        cell.newsImageView.downloaded(from: viewModel.cellForRow(at: indexPath)?.urlToImage ?? "")
-        cell.backgroundColor? = .cyan
+        cell.delegate = self
+        if let article = viewModel.cellForRow(at: indexPath) {
+            cell.layer.borderColor = UIColor.black.cgColor
+            cell.titleLabel?.text = viewModel.cellForRow(at: indexPath)?.title
+            cell.titleLabel?.lineBreakMode = .byTruncatingTail
+            cell.titleLabel?.numberOfLines = 6
+            cell.dateLabel?.text = viewModel.cellForRow(at: indexPath)?.publishedAt?.fullDateString()
+            cell.sourceLabel.text = viewModel.cellForRow(at: indexPath)?.source?.name
+            cell.newsImageView.downloaded(from: viewModel.cellForRow(at: indexPath)?.urlToImage ?? "")
+            cell.article = article
+            cell.newsImageView.contentMode = .scaleAspectFill
+        }
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 0.3
+        cell.layer.cornerRadius = 10.0
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.bounds.width - 40) / 2, height: collectionView.bounds.size.height / 3)
+        return CGSize(width: (collectionView.bounds.width - 40) / 2, height: collectionView.bounds.size.height / 2)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
@@ -81,119 +145,21 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+          if let article = viewModel.cellForRow(at: indexPath), let articleURLString = article.url, let url = URL(string: articleURLString) {
+              if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NewsDetailViewController") as? NewsDetailViewController {
+                  destinationVC.articleURL = url
+                  navigationController?.pushViewController(destinationVC, animated: true)
+              }
+          }
+      }
 }
- /*final class NewsViewModel {
-  var onSuccess: (() -> ())?
-  var onError: ((_ errorStr: String) -> ())?
-  
-  var articles: [Article]?
-  
-  func loadNews() {
-      let resource = Resource<NewsResponse>(url: .country(country: "us"))
-      NetworkManager.shared.fetchNews(resource: resource) { result in
-          switch result {
-          case .success(let success):
-              self.articles = success.articles
-              self.onSuccess?()
 
-          case .failure(let failure):
-              self.onError?(failure.localizedDescription)
-          }
-      }
-  }
-  
-  func cellForRow(at indexPath: IndexPath) -> Article? {
-      return articles?[indexPath.row]
-  }
-  
-  func numberOfItems(in section: Int) -> Int {
-      return articles?.count ?? 0
-  }
+extension Date {
+    func fullDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return dateFormatter.string(from: self)
+    }
 }
-  struct NewsResponse: Codable {
-      let status: String?
-      let totalResults: Int?
-      let articles: [Article]?
-  }
 
-  struct Article: Codable {
-      let source: Source?
-      let author: String?
-      let title, description: String?
-      let url: String?
-      let urlToImage: String?
-      let publishedAt: Date?
-      let content: String?
-  }
-
-  struct Source: Codable {
-      let id: String?
-      let name: String?
-  }
-
-  extension DateFormatter {
-      static let iso8601Full: DateFormatter = {
-          let formatter = DateFormatter()
-          formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-          return formatter
-      }()
-  }
-
-  enum Path {
-      case category(category: String, country: String)
-      case country(country: String)
-      
-      var baseURL: String {
-          return "https://newsapi.org/v2/top-headlines"
-      }
-      
-      var apiKey: String {
-          return "69ac707291b548c985685f955999a51e"
-      }
-      
-      var path: URL {
-          switch self {
-          case .category(let category, let country):
-              let urlString = "\(baseURL)?country=\(country)&category=\(category)&apiKey=\(apiKey)"
-              return URL(string: urlString)!
-          case .country(let country):
-              let urlString = "\(baseURL)?country=\(country)&apiKey=\(apiKey)"
-              return URL(string: urlString)!
-          }
-      }
-  }
-
-
-  struct Resource<T:Decodable> {
-      var url: Path
-  }
-
-
-  final class NetworkManager {
-      
-      static let shared = NetworkManager()
-          
-      func fetchNews<T: Decodable>(resource: Resource<T>, completion: @escaping (Result<T, Error>) -> ()) {
-          URLSession.shared.dataTask(with: resource.url.path) { data, response, error in
-                  if let error = error {
-                      completion(.failure(error))
-                      return
-                  }
-                  guard let data = data else {
-                      completion(.failure(NSError(domain: "Data Error", code: 0)))
-                      return
-                  }
-                  do {
-                      let decoder = JSONDecoder()
-                      decoder.dateDecodingStrategy = .formatted(.iso8601Full) // Set date decoding strategy
-                      let decodedData = try decoder.decode(T.self, from: data)
-                      completion(.success(decodedData))
-                  } catch {
-                      completion(.failure(NSError(domain: "Decode Error", code: 0)))
-                  }
-              }.resume()
-          }
-      
-  }
-
-*/

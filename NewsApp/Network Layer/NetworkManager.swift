@@ -9,9 +9,13 @@ import Foundation
 enum Path {
     case category(category: String, country: String)
     case country(country: String)
+    case search(searchText: String)
     
     var baseURL: String {
         return "https://newsapi.org/v2/top-headlines"
+    }
+    var everytingURL: String {
+         return "https://newsapi.org/v2/everything"
     }
     
     var apiKey: String {
@@ -26,6 +30,16 @@ enum Path {
         case .country(let country):
             let urlString = "\(baseURL)?country=\(country)&apiKey=\(apiKey)"
             return URL(string: urlString)!
+        case .search(let searchText):
+            guard let encodedSearchText = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+                  fatalError("Failed to encode searchText")
+              }
+              let urlString = "\(everytingURL)?q=\(encodedSearchText)&apiKey=\(apiKey)"
+              if let url = URL(string: urlString) {
+                  return url
+              } else {
+                  fatalError("Failed to create URL")
+              }
         }
     }
 }

@@ -9,21 +9,27 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var labelText: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let tabBarVC = tabBarController as? TabBarViewController {
+            if let userEmail = tabBarVC.userEmail {
+            emailLabel.text = "Email: \(userEmail)"
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func `switch`(_ sender: Any) {
+        /*let appDelegate = UIApplication.shared.windows.first
+                if sender.isOn {
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                    labelText.text = "Dark Mode"
+                }
+                else{
+                    appDelegate?.overrideUserInterfaceStyle = .light
+                    labelText.text = "Light Mode"
+                }*/
     }
-    */
-
 }
