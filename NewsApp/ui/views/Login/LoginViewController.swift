@@ -11,11 +11,9 @@ import Firebase
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.isSecureTextEntry = true
@@ -39,6 +37,7 @@ class LoginViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "News", bundle: nil)
                 if let vc = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
                     vc.userEmail = email
+                    UserDefaults.standard.set(email, forKey: "userEmail")
                     self.navigationController?.setViewControllers([vc], animated: true)
                     self.navigationController?.popToRootViewController(animated: true)
                 }

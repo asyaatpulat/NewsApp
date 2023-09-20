@@ -18,9 +18,9 @@ final class NewsViewModel {
  
     func loadNews() {
         var resource: Resource<NewsResponse>
-         if let searchText = searchText, !searchText.isEmpty {
+        if let searchText = searchText, !searchText.isEmpty {
             resource = Resource<NewsResponse>(url: .search(searchText: searchText))}
-         if let selectedCategory = category { 
+        else if let selectedCategory = category {
             resource = Resource<NewsResponse>(url: .category(category: selectedCategory, country: "us"))
         } else {
             resource = Resource<NewsResponse>(url: .country(country: "us"))

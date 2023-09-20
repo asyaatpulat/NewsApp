@@ -12,25 +12,22 @@ import CoreData
 class NewsViewController: UIViewController , MenuListDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var newsCollectionView: UICollectionView!
     
-    
     var menu : SideMenuNavigationController?
-    
     var viewModel = NewsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareSideMenu()
         prepareCollectionView()
-        viewModel.loadNews()
         prepareSearchBar()
+        viewModel.loadNews()
         viewModel.onSuccess = reloadCollectionView()
         viewModel.onError = showError()
         if let menuListController = menu?.viewControllers.first as? MenuListController {
-                 menuListController.delegate = self
-         }
+            menuListController.delegate = self
+        }
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask ))
     }
     
@@ -94,14 +91,14 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-
+        
         let context = appDelegate.persistentContainer.viewContext
-
+        
         if let entity = NSEntityDescription.entity(forEntityName: "News", in: context), let news = NSManagedObject(entity: entity, insertInto: context) as? NSManagedObject {
             news.setValue(title, forKey: "title")
             news.setValue(source, forKey: "source")
             news.setValue(image, forKey: "image")
-
+            
             do {
                 try context.save()
                 print("Haber kaydedildi.")
@@ -134,8 +131,8 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
             cell.article = article
             cell.newsImageView.contentMode = .scaleAspectFill
         }
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 0.3
+        cell.layer.borderColor = UIColor(named: "appColor")?.cgColor
+        cell.layer.borderWidth = 1.0
         cell.layer.cornerRadius = 10.0
         return cell
     }
@@ -149,13 +146,13 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-          if let article = viewModel.cellForRow(at: indexPath), let articleURLString = article.url, let url = URL(string: articleURLString) {
-              if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NewsDetailViewController") as? NewsDetailViewController {
-                  destinationVC.articleURL = url
-                  navigationController?.pushViewController(destinationVC, animated: true)
-              }
-          }
-      }
+        if let article = viewModel.cellForRow(at: indexPath), let articleURLString = article.url, let url = URL(string: articleURLString) {
+            if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NewsDetailViewController") as? NewsDetailViewController {
+                destinationVC.articleURL = url
+                navigationController?.pushViewController(destinationVC, animated: true)
+            }
+        }
+    }
 }
 
 extension Date {
