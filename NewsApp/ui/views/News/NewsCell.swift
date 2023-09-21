@@ -6,14 +6,15 @@
 //
 
 import UIKit
+
 protocol NewsCellDelegate: AnyObject {
     func saveButtonClicked(title: String, source: String, image: String)
 }
+
 class NewsCell: UICollectionViewCell {
     weak var delegate: NewsCellDelegate?
     var article: Article?
     var isBookmarked = false
-    
     
     static let identifier = String(describing: NewsCell.self)
     @IBOutlet weak var newsImageView: UIImageView!

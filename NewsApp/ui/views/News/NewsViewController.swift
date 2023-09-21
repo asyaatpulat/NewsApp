@@ -73,6 +73,7 @@ class NewsViewController: UIViewController , MenuListDelegate {
             }
         }
     }
+    
     func didSelectCategory(_ category: String) {
         viewModel.category = category
         viewModel.loadNews()
@@ -86,24 +87,23 @@ extension NewsViewController: UISearchBarDelegate {
         print(searchText)
     }
 }
+
 extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionViewDataSource, NewsCellDelegate{
     func saveButtonClicked(title: String, source: String, image: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
         let context = appDelegate.persistentContainer.viewContext
-        
-        if let entity = NSEntityDescription.entity(forEntityName: "News", in: context), let news = NSManagedObject(entity: entity, insertInto: context) as? NSManagedObject {
+        if let entity = NSEntityDescription.entity(forEntityName: "News", in: context),
+            let news = NSManagedObject(entity: entity, insertInto: context) as? NSManagedObject {
             news.setValue(title, forKey: "title")
             news.setValue(source, forKey: "source")
             news.setValue(image, forKey: "image")
-            
             do {
                 try context.save()
-                print("Haber kaydedildi.")
+                print("News Saved.")
             } catch {
-                print("Haber kaydedilirken bir hata oluştu: \(error)")
+                print("Error happened when saving news: \(error)")
             }
         }
     }
@@ -111,9 +111,11 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfItems(in: section)
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as! NewsCell
         cell.delegate = self
@@ -134,15 +136,19 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
         cell.layer.cornerRadius = 10.0
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.bounds.width - 40) / 2, height: collectionView.bounds.size.height / 2)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let article = viewModel.cellForRow(at: indexPath), let articleURLString = article.url, let url = URL(string: articleURLString) {
             if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "NewsDetailViewController") as? NewsDetailViewController {

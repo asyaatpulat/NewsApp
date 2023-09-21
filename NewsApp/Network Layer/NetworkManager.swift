@@ -72,7 +72,6 @@ final class NetworkManager {
                     completion(.failure(NSError(domain: "Decode Error", code: 0)))
                 }
             }.resume()
-        }
-    
+    }
 }
 

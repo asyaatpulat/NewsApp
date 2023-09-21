@@ -11,6 +11,7 @@ import UIKit
 protocol MenuListDelegate: AnyObject {
     func didSelectCategory(_ category: String)
 }
+
 class MenuListController: UITableViewController {
     var categories = ["Business","Entertainment","General","Health","Science","Sports","Technology"]
     weak var delegate: MenuListDelegate?

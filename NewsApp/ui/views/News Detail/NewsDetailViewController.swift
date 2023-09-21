@@ -13,7 +13,6 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    
     var articleURL: URL?
     
     override func viewDidLoad() {

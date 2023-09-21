@@ -37,7 +37,6 @@ class RegisterViewController: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
-            
         }
     }
 }

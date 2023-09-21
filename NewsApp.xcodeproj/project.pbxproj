@@ -91,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		223EA6062ABCC30700D57663 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				227C12F72AB77D3000A32A08 /* Model.xcdatamodeld */,
+				22C54D522AA9ECD30093A2E6 /* GoogleService-Info.plist */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
 		223FB0A62AADD7810005E5F9 /* Network Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +157,7 @@
 		22C54D2F2AA7C68C0093A2E6 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				223EA6062ABCC30700D57663 /* Data Model */,
 				22C54D3E2AA7C68E0093A2E6 /* Info.plist */,
 				22CBCE0C2ABB9379004A1A87 /* Files */,
 				223FB0AD2AAE70E10005E5F9 /* Extension */,
@@ -267,8 +277,6 @@
 			children = (
 				22C54D302AA7C68C0093A2E6 /* AppDelegate.swift */,
 				22C54D322AA7C68C0093A2E6 /* SceneDelegate.swift */,
-				227C12F72AB77D3000A32A08 /* Model.xcdatamodeld */,
-				22C54D522AA9ECD30093A2E6 /* GoogleService-Info.plist */,
 			);
 			path = Files;
 			sourceTree = "<group>";

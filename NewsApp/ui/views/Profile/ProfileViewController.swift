@@ -13,12 +13,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let userEmail = UserDefaults.standard.string(forKey: "userEmail") {
-                   // Use userEmail in your view
-                   emailLabel.text = userEmail
-               }
-           }
+            emailLabel.text = userEmail
+        }
+    }
     
     @IBAction func `switch`(_ sender: UISwitch) {
         if #available(iOS 13.0, *){

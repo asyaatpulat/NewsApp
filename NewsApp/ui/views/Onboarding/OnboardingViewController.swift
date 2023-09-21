@@ -38,7 +38,6 @@ class OnboardingViewController: UIViewController {
         ]
     }
     
-
     @IBAction func nextButtonClicked(_ sender: Any) {
         if currentPage == slides.count - 1 {
             let authStoryboard = UIStoryboard(name: "Auth", bundle: nil)
@@ -54,7 +53,6 @@ class OnboardingViewController: UIViewController {
             collectionView.isPagingEnabled = true
         }
     }
-
 }
 
 extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -67,8 +65,8 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
         cell.setup(slides[indexPath.row])
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) ->
-    CGSize{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) ->CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     
@@ -76,5 +74,4 @@ extension OnboardingViewController : UICollectionViewDelegate, UICollectionViewD
         let width = scrollView.frame.width
         currentPage = Int(scrollView.contentOffset.x / width)
     }
-    
 }
