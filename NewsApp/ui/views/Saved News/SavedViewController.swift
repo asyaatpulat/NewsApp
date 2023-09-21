@@ -16,6 +16,7 @@ class SavedViewController: UIViewController {
     @IBOutlet weak var savedCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadItems()
         prepareCollectionView()
     }
     func prepareCollectionView() {
@@ -41,8 +42,8 @@ class SavedViewController: UIViewController {
 extension SavedViewController:UICollectionViewDelegateFlowLayout , UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SavedCollectionViewCell.identifier, for: indexPath) as! SavedCollectionViewCell
-        cell.layer.borderColor = UIColor.darkGray.cgColor
-        cell.layer.borderWidth = 0.3
+        cell.layer.borderColor = UIColor(named: "appColor")?.cgColor
+        cell.layer.borderWidth = 1.0
         cell.layer.cornerRadius = 10.0
         let selectedNew = news[indexPath.row]
         cell.titleLabel.text = selectedNew.title
@@ -71,5 +72,6 @@ extension SavedViewController:UICollectionViewDelegateFlowLayout , UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    
     
 }

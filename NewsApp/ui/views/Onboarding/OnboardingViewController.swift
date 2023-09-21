@@ -32,8 +32,8 @@ class OnboardingViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         slides = [OnboardingSlide(title: "Discover Breaking News", description: "Stay updated with the latest headlines, breaking news, and trending stories from around the world.", image: UIImage(named: "welcome-back")!),
-                  OnboardingSlide(title: "Tailor Your News Feed", description: "Customize your news feed by choosing your favorite categories and interests. Get news that matters to you.", image:  UIImage(named: "media")!),
-                  OnboardingSlide(title:"Take Control of Your Experience", description: "Access your profile, settings, and preferences all in one place. Manage your news sources, notifications, and more.", image:  UIImage(named: "news")!)
+                  OnboardingSlide(title: "Tailor Your News Feed", description: "Customize your news feed by choosing your favorite categories and interests. Get news that matters to you.", image:  UIImage(named: "world-news")!),
+                  OnboardingSlide(title:"Take Control of Your Experience", description: "Access your profile, settings, and preferences all in one place.", image:  UIImage(named: "news")!)
                   
         ]
     }
@@ -42,20 +42,10 @@ class OnboardingViewController: UIViewController {
     @IBAction func nextButtonClicked(_ sender: Any) {
         if currentPage == slides.count - 1 {
             let authStoryboard = UIStoryboard(name: "Auth", bundle: nil)
-                  
-                  // Auth.storyboard'dan UINavigationController'ı alın
                   if let authNavigationController = authStoryboard.instantiateInitialViewController() as? UINavigationController {
-                      
-                      // UINavigationController'ı tam ekran olarak görüntüleyin
                       authNavigationController.modalPresentationStyle = .fullScreen
-                      
-                      // Onboarding ekranından auth ekranına geçiş yapın
                       self.present(authNavigationController, animated: true, completion: nil)
                   }
-              
-
-               
-            
         }else{
             collectionView.isPagingEnabled = false
             currentPage += 1

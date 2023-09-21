@@ -118,13 +118,11 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout , UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as! NewsCell
         cell.delegate = self
         if let article = viewModel.cellForRow(at: indexPath) {
-            cell.layer.borderColor = UIColor.black.cgColor
             cell.titleLabel?.text = viewModel.cellForRow(at: indexPath)?.title
             cell.titleLabel?.lineBreakMode = .byTruncatingTail
             cell.titleLabel?.numberOfLines = 6
             cell.titleLabel?.font = .poppinsRegular(size: 18)
             cell.sourceLabel?.font = .poppinsRegular(size: 10)
-            cell.dateLabel?.font = .poppinsThin(size: 2)
             cell.dateLabel?.text = viewModel.cellForRow(at: indexPath)?.publishedAt?.fullDateString()
             cell.sourceLabel.text = viewModel.cellForRow(at: indexPath)?.source?.name
             cell.newsImageView.downloaded(from: viewModel.cellForRow(at: indexPath)?.urlToImage ?? "")
